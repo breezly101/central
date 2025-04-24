@@ -42,10 +42,9 @@
     </div>
 
     <div class="navbar">
-        <a href="/index.html"><i class="fa-solid fa-house"></i></a>
+        <a href="/"><i class="fa-solid fa-house"></i></a>
         <a href="/pages/gxmez.html"><i class="fas fa-gamepad"></i></a>
         <a href="/pages/4pps.html"><i class="fas fa-border-all"></i></a>
-        <a href="/pages/movies.html"><i class="fas fa-film"></i></a>
         <a href="/pages/ai.html"><i class="fa-solid fa-robot"></i></a>
         <a href="/pages/settings.html"><i class="fa-solid fa-gear"></i></a>
         <a href="/pages/extra.html"><i class="fas fa-plus"></i></a>
@@ -62,56 +61,67 @@
     </div>
 
     <!-- eww, a script NOT loaded from a file -->
-    <script> 
-    document.addEventListener("DOMContentLoaded", function () {
-        fetch('/json/tstststststststststststststststststststststststs.json')
-            .then(response => response.json())
-            .then(data => {
-                const container = document.querySelector('.buttons-here');
-
-                if (!container) {
-                    console.error('elements not found');
-                    return;
-                }
-
-                document.getElementById("app-count").textContent = data.length;
-
-                data.sort((a, b) => a.alt.localeCompare(b.alt));
-
-                data.forEach(item => {
-                    const linkElement = document.createElement('a');
-
-                    if (item.url.startsWith('/extra/') || item.url.startsWith('/noframe/')) {
-                        linkElement.href = item.url;
-                    } else {
-                        linkElement.href = `/iframe.html?url=${encodeURIComponent(item.url)}`;
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('/json/tstststststststststststststststststststststststs.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
                     }
-
-                    const imgElement = document.createElement('img');
-                    imgElement.className = 'imgbutton';
-                    imgElement.src = item.img;
-                    imgElement.alt = item.alt;
-
-                    linkElement.appendChild(imgElement);
-                    container.appendChild(linkElement);
+                    return response.json();
+                })
+                .then(data => {
+                    const container = document.querySelector('.buttons-here');
+                    if (!container) {
+                        console.error('Container element not found');
+                        return;
+                    }
+        
+                    const appCountElement = document.getElementById("app-count");
+                    if (appCountElement) {
+                        appCountElement.textContent = data.length;
+                    }
+                    
+                    data.sort((a, b) => a.alt.localeCompare(b.alt));
+        
+                    data.forEach(item => {
+                        const linkElement = document.createElement('a');
+                        linkElement.href = item.url.startsWith('/extra/') || item.url.startsWith('/noframe/')
+                            ? item.url
+                            : `/iframe.html?url=${encodeURIComponent(item.url)}`;
+        
+                        const imgElement = document.createElement('img');
+                        imgElement.className = 'imgbutton';
+        
+                        const webpSrc = item.img.replace(/\.(png|jpg|jpeg)$/i, '.webp');
+                        imgElement.src = webpSrc;
+                        imgElement.onerror = function() {
+                            this.src = item.img;
+                        };
+                        
+                        imgElement.alt = item.alt;
+                        imgElement.loading = 'lazy';
+                        imgElement.fetchPriority = 'low';
+        
+                        linkElement.appendChild(imgElement);
+                        container.appendChild(linkElement);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching app data:', error);
+                    const appCountElement = document.getElementById("app-count");
+                    if (appCountElement) {
+                        appCountElement.textContent = "Error";
+                    }
                 });
-            })
-            .catch(error => {
-                console.error('error fetching the jason file (ts ts ts ts ts ts ts ts ts ts ts ts ts ts ts ts ts ts ts ts):', error);
-                document.getElementById("app-count").textContent = "idk";
-            });
-    });
-    </script>
+        });
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-    document.body.addEventListener('keydown', function(event) {
-        if (event.key === 'b') {
-            window.location.href = '/iframe.html?url=/4ppz/brunys.html';
-        }
-    });
-});
-</script>
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'b') {
+                window.location.href = '/iframe.html?url=/4ppz/brunys.html';
+            }
+        });
+    </script>
 
 </body>
 

@@ -4,7 +4,6 @@ var tabs = [];
       function openTab(url) {
         var iframe = document.createElement("iframe");
         iframe.src = url;
-        iframe.style.display = "none";
         iframe.onload = function () {
           updateTabTitle(tabs[tabs.length - 1]);
           fetchFavicon(url).then(function (iconUrl) {
@@ -265,16 +264,11 @@ var tabs = [];
           .join("");
       }
 
-      function decodeBase64(str) {
-        return decodeURIComponent(atob(str));
-      }
-
       const urlParams = new URLSearchParams(window.location.search);
       const encodedUrl = urlParams.get("u");
 
       if (encodedUrl) {
-        const decodedUrl = decodeBase64(encodedUrl);
-        openTab(decodedUrl);
+        openTab(encodedUrl);
       } else {
         openTab("pages/newtab.html");
       }

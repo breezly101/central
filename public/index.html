@@ -16,48 +16,45 @@
     <meta name="msapplication-TileColor" content="#0f0f0f">
     <meta property="image" content="/assets/logo.png">
     <meta property="og:image" content="/assets/logo.png">
+    <script src="/js/usesettings.js"></script>
+    <script src="/js/panic.js"></script>
 </head>
 <body>
    <div id="particles-js"></div>
    <div class="navbar">
-    <a href="/index.html"><i class="fa-solid fa-house"></i></a>
+    <a href="/"><i class="fa-solid fa-house"></i></a>
     <a href="/pages/gxmez.html"><i class="fas fa-gamepad"></i></a>
     <a href="/pages/4pps.html"><i class="fas fa-border-all"></i></a>
-    <a href="/pages/movies.html"><i class="fas fa-film"></i></a>
     <a href="/pages/ai.html"><i class="fa-solid fa-robot"></i></a>
     <a href="/pages/settings.html"><i class="fa-solid fa-gear"></i></a>
     <a href="/pages/extra.html"><i class="fas fa-plus"></i></a>
     <a href="/extra/discord.html"><i class="fa-brands fa-discord"></i></a>
 </div>
    <div id="content">
-      <h1 id="title">Szvy Central V2</h1>
+      <h1 id="title" class="hometitle">Szvy Central V2</h1>
       <form id="uv-form">
         <input id="uv-search-engine" value="https://duckduckgo.com/?t=h_&q=%s" type="hidden"> 
         <input id="uv-address" type="text" placeholder="Search freely with Szvy Central..." class="form__input" autocomplete="off">
          <p class="smallahhtext">Quick Links</p>
          <div class="quicklink-container" id="quicklink-container">
-            <a class="quicklink-button" href="/math.html?u=L3N6dnkvc3p2eS9odnRyczglMkYtZHdjaWR3Y2lnbS5hb28=">
-               <img src="/assets/duckduckgo.png" alt="DuckDuckGo">
+            <a class="quicklink-button" href="/math.html?u=/szvy/szvy/hvtrs8%2F-dwcidwcigm.aoo">
+               <img src="/assets/duckduckgo.webp" alt="DuckDuckGo">
                <p>DuckDuckGo</p>
             </a>
-            <a class="quicklink-button" href="/math.html?u=L3N6dnkvc3p2eS9odnRyJTNBLSUyRmVvbWduZSUyQ2NtbQ==">
-               <img src="/assets/google.png" alt="Google">
-               <p>Google</p>
-            </a>
-            <a class="quicklink-button" href="/math.html?u=L3N6dnkvc3p2eS9odnRyczglMkYtd3V3JTJDZWNzJTdCZnduJTJDZ2U=">
-               <img src="/assets/easyfun.png" alt="EasyFun">
+            <a class="quicklink-button" href="/math.html?u=/szvy/szvy/hvtrs8%2F-ecs%7Bfwn%2Cge">
+               <img src="/assets/easyfun.webp" alt="EasyFun">
                <p>EasyFun</p>
             </a>
-            <a class="quicklink-button" href="/math.html?u=L3N6dnkvc3p2eS9odnRyJTNBLSUyRnJsY3klMkNnZ2ZtcmFlbG91LmFvbyUyRm9hbmwt">
-                <img src="/assets/geforce.png" alt="Geforce Now">
+            <a class="quicklink-button" href="/math.html?u=/szvy/szvy/hvtrs8%2F-pna%7B.eedopcgnmw%2Ccmm-mcln%2F">
+                <img src="/assets/geforce.webp" alt="Geforce Now">
                 <p>Geforce Now</p>
              </a>
-            <a class="quicklink-button" href="/math.html?u=L3N6dnkvc3p2eS9odnRyczglMkYtd3V3JTJDdGtrdm9pLmFvbw==">
-               <img src="/assets/tiktok.png" alt="Tiktok">
+            <a class="quicklink-button" href="/math.html?u=/szvy/szvy/hvtr%3A-%2Fviitmk%2Ccmm">
+               <img src="/assets/tiktok.webp" alt="Tiktok">
                <p>Tiktok</p>
             </a>
             <a class="quicklink-button" id="custom-site-container">
-               <img src="/assets/plus.png" alt="Add Custom Site">
+               <img src="/assets/plus.webp" alt="Add Custom Site">
                <p>Add Site</p>
             </a>
          </div>
@@ -96,12 +93,12 @@
                 event.preventDefault();
                 let url = input.value.trim();
                 if (!isUrl(url)) {
-                  url = "https://duckduckgo.com/?q=" + encodeURIComponent(url);
+                  url = "https://duckduckgo.com/&q%3D" + encodeURIComponent(url);
                 } else if (!(url.startsWith("https://") || url.startsWith("http://"))) {
                   url = "http://" + url;
                 }
                 const encodedUrl = __uv$config.prefix + __uv$config.encodeUrl(url);
-                window.location.href = "math.html?u=" + btoa(encodedUrl);
+                window.location.href = "math.html?u=" + (encodedUrl);
               });
           
               loadCustomLinks();

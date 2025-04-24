@@ -43,10 +43,9 @@
     </div>
 
     <div class="navbar">
-        <a href="/index.html"><i class="fa-solid fa-house"></i></a>
+        <a href="/"><i class="fa-solid fa-house"></i></a>
         <a href="/pages/gxmez.html"><i class="fas fa-gamepad"></i></a>
         <a href="/pages/4pps.html"><i class="fas fa-border-all"></i></a>
-        <a href="/pages/movies.html"><i class="fas fa-film"></i></a>
         <a href="/pages/ai.html"><i class="fa-solid fa-robot"></i></a>
         <a href="/pages/settings.html"><i class="fa-solid fa-gear"></i></a>
         <a href="/pages/extra.html"><i class="fas fa-plus"></i></a>
@@ -63,18 +62,29 @@
 
     <div class="section">
         <h2>Tab Cloak</h2>
-        <label for="faviconDropdown">Select a site to cloak the tab:</label>
+        <label for="faviconDropdown">Select a site to cloak the tab:</label> <br>
         <select id="faviconDropdown">
           <option value="" disabled selected>Select Cloak</option>
         </select>
     </div>
 
     <div class="section">
-        <h2>Gatekeep Mode</h2>
-        <div class="gatekeep-container">
-            <button id="gatekeep-button">Toggle Gatekeep Mode</button>
-            <div id="gatekeep-status"></div>
-        </div>
+        <h2>Theme</h2>
+        <label for="themee">Select a theme:</label> <br>
+        <select id="themee">
+            <option value="default">Default</option>
+            <option value="dark">Dark Mode</option>
+            <option value="light">Light Mode</option>
+            <option value="evergreen">Evergreen</option>
+            <option value="lavender">Lavender</option>
+            <option value="solarflare">Solarflare</option>
+            <option value="moonlight">Moonlight</option>
+            <option value="bubblegum">Bubblegum</option>
+            <option value="v1">Szvy Central V1</option>
+            <option value="mexi">Meximath</option>
+            <option value="brunys">Brunysixlwork</option>
+            <option value="frogiee">Frogie's Arcade</option>
+          </select>
     </div>
     
 
@@ -98,14 +108,14 @@
         <div class="buttons-here">
             <button onclick="keybind" id="setkeybind">Set Key</button>
         </div>
-        <div id="output">Press a key to set it. Current key: ~</div>
+        <div id="output">Press a key to set it. Current key: none</div>
     </div>
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const setkeybind = document.getElementById('setkeybind');
             const output = document.getElementById('output');
-            let keybind = localStorage.getItem('keybind') || '~'; 
+            let keybind = localStorage.getItem('keybind') || 'none'; 
     
             output.textContent = `Current key: ${keybind}`;
     

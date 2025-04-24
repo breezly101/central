@@ -5,8 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="https://www.google.com/favicon.ico">
     <title>calculator - Google Search</title>
-    <link rel="stylesheet" href="css/search.css" />
-    <link rel="stylesheet" href="https://atugatran.github.io/FontAwesome6Pro/css/all.min.css"/>
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/fontawesome6profreenovirus.css"/>
+    <script src="/js/usesettings.js"></script>
+    <script src="/js/panic.js"></script>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+      }
+    </style>
   </head>
   
   <body>
@@ -18,20 +27,20 @@
       
       <div class="url-bar-container">
         <button class="icon-button" id="backButton">
-          <i class="fa-sharp fa-regular fa-arrow-left"></i>
+          <i class="fa-regular fa-arrow-left"></i>
         </button>
         <button class="icon-button" id="forwardButton">
-          <i class="fa-sharp fa-regular fa-arrow-right"></i>
+          <i class="fa-regular fa-arrow-right"></i>
         </button>
         <button class="icon-button" id="reloadButton">
-          <i class="fa-sharp fa-regular fa-rotate-right"></i>
+          <i class="fa-regular fa-redo"></i>
         </button>
         <input type="text" class="url-input" placeholder="Search or type URL" readonly />
         <button class="icon-button" id="homeButton" onclick="window.location = '/';">
-          <i class="fa-sharp fa-regular fa-house"></i>
+          <i class="fa-regular fa-house"></i>
         </button>
         <button class="icon-button" id="injectButton" onclick="erudaToggle()">
-          <i class="fa-sharp fa-regular fa-code"></i>
+          <i class="fa-regular fa-regular fa-code"></i>
         </button>
       </div>
       
@@ -41,34 +50,6 @@
     </div>
     
     <script>
-      const iframe = document.querySelector('iframe');
-      let lastURL = '';
-      
-      function checkIframeURL() {
-        try {
-          const currentURL = iframe.contentWindow.location.href;
-          if (currentURL !== lastURL) {
-            console.log(`Iframe URL changed to: ${currentURL}`);
-            lastURL = currentURL;
-            
-            const websitePath = currentURL.replace(window.location.origin, "").replace("/szvy/szvy/", "");
-            localStorage.setItem("decoded", websitePath);
-            
-            const decodedValue = __uv$config.decodeUrl(websitePath);
-            document.querySelector(".url-input").value = decodedValue;
-            
-            if (decodedValue === "a`owt8bnalk") {
-              document.querySelector(".url-input").value = "Loading your content...";
-            }
-            
-            monitorIframeProgress(iframe.contentWindow);
-          }
-        } catch (error) {
-          console.error('Cannot access iframe URL due to cross-origin policy');
-        }
-      }
-      
-      setInterval(checkIframeURL, 1000);
 
       function erudaToggle() {
   if (!document.getElementById("iframeid")) return;

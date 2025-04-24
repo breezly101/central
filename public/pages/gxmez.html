@@ -54,10 +54,9 @@
 <body>
 
     <div class="navbar">
-        <a href="/index.html"><i class="fa-solid fa-house"></i></a>
+        <a href="/"><i class="fa-solid fa-house"></i></a>
         <a href="/pages/gxmez.html"><i class="fas fa-gamepad"></i></a>
         <a href="/pages/4pps.html"><i class="fas fa-border-all"></i></a>
-        <a href="/pages/movies.html"><i class="fas fa-film"></i></a>
         <a href="/pages/ai.html"><i class="fa-solid fa-robot"></i></a>
         <a href="/pages/settings.html"><i class="fa-solid fa-gear"></i></a>
         <a href="/pages/extra.html"><i class="fas fa-plus"></i></a>
@@ -73,50 +72,46 @@
     </div>
 
     <!-- eww, a script NOT loaded from a file -->
-    <script> 
-    document.addEventListener("DOMContentLoaded", function () {
-        fetch('/json/gg.json')
-            .then(response => response.json())
-            .then(data => {
-                const container = document.querySelector('.buttons-here');
-
-                if (!container) {
-                    console.error('elements not found');
-                    return;
-                }
-
-                document.getElementById("game-count").textContent = data.length;
-
-                data.sort((a, b) => a.alt.localeCompare(b.alt));
-
-                data.forEach(item => {
-                    const linkElement = document.createElement('a');
-
-                    if (item.url.startsWith('/extra/') || item.url.startsWith('/noframe/')) {
-                        linkElement.href = item.url;
-                    } else {
-                        linkElement.href = `/iframe.html?url=${encodeURIComponent(item.url)}`;
-                    }
-
-                    const imgElement = document.createElement('img');
-                    imgElement.className = 'imgbutton';
-                    imgElement.src = item.img;
-                    imgElement.alt = item.alt;
-                    imgElement.loading = 'lazy';
-
-                    linkElement.appendChild(imgElement);
-                    container.appendChild(linkElement);
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch('/json/gg.json')
+                .then(response => response.json())
+                .then(data => {
+                    const container = document.querySelector('.buttons-here');
+                    if (!container) return;
+        
+                    document.getElementById("game-count").textContent = data.length;
+                    data.sort((a, b) => a.alt.localeCompare(b.alt));
+        
+                    requestIdleCallback(() => {
+                        data.forEach(item => {
+                            const linkElement = document.createElement('a');
+                            linkElement.href = item.url.startsWith('/extra/') || item.url.startsWith('/noframe/')
+                                ? item.url
+                                : `/iframe.html?url=${encodeURIComponent(item.url)}`;
+        
+                            const imgElement = document.createElement('img');
+                            imgElement.className = 'imgbutton';
+        
+                            const webpSrc = item.img.replace(/\.(png|jpg|jpeg)$/i, '.webp');
+                            imgElement.src = webpSrc;
+                            imgElement.alt = item.alt;
+                            imgElement.loading = 'lazy';
+                            imgElement.fetchPriority = 'low';
+        
+                            linkElement.appendChild(imgElement);
+                            container.appendChild(linkElement);
+                        });
+                    });
+                })
+                .catch(error => {
+                    console.error('error fetching ja yon:', error);
+                    document.getElementById("game-count").textContent = "idk";
                 });
-            })
-            .catch(error => {
-                console.error('error fetching the jason file (ts ts ts ts ts ts ts ts ts ts ts ts ts ts ts ts ts ts ts ts):', error);
-                document.getElementById("game-count").textContent = "idk";
-            });
-    });
-    let images = document.querySelectorAll(".imgbutton");
-    lazyload(images);
-    </script>
-
+        });
+        </script>
+        
+        <script type='text/javascript' src='//pl24893363.profitableratecpm.com/e1/78/e8/e178e83d8a9f1f2aed9465374abd00ab.js'></script>
 </body>
 
 </html>

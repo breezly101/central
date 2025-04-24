@@ -561,57 +561,57 @@
   },
   {
     "url": "/gsrc/papasbakeria/index.html",
-    "img": "/gsrc/papasbakeria/papasbakeria.png",
+    "img": "/assets/papasbakeria.png",
     "alt": "papa's bakeria"
   },
   {
     "url": "/gsrc/papasburgeria/index.html",
-    "img": "/gsrc/papasburgeria/images.jpeg",
+    "img": "/assets/images.jpeg",
     "alt": "papa's burgeria"
   },
   {
     "url": "/gsrc/papascheeseria/index.html",
-    "img": "/gsrc/papascheeseria/papascheeseria.png",
+    "img": "/assets/papascheeseria.png",
     "alt": "papa's cheeseria"
   },
   {
     "url": "/gsrc/papasdonuteria/index.html",
-    "img": "/gsrc/papasdonuteria/papasdonuteria.png",
+    "img": "/assets/papasdonuteria.png",
     "alt": "papa's donuteria"
   },
   {
     "url": "/gsrc/papasfreezeria/index.html",
-    "img": "/gsrc/papasfreezeria/images.jpeg",
+    "img": "/assets/images.jpeg",
     "alt": "papa's freezeria"
   },
   {
     "url": "/gsrc/papaspancakeria/index.html",
-    "img": "/gsrc/papaspancakeria/papaspancakeria.png",
+    "img": "/assets/papaspancakeria.png",
     "alt": "papa's pancakeria"
   },
   {
     "url": "/gsrc/papaspastaria/index.html",
-    "img": "/gsrc/papaspastaria/papaspastaria.png",
+    "img": "/assets/papaspastaria.png",
     "alt": "papa's pastaria"
   },
   {
     "url": "/gsrc/papasscooperia/index.html",
-    "img": "/gsrc/papasscooperia/papasscooperia.png",
+    "img": "/assets/papasscooperia.png",
     "alt": "papa's scooperia"
   },
   {
     "url": "/gsrc/papassushiria/index.html",
-    "img": "/gsrc/papassushiria/papassushiria.png",
+    "img": "/assets/papassushiria.png",
     "alt": "papa's sushiria"
   },
   {
     "url": "/gsrc/papastacomia/index.html",
-    "img": "/gsrc/papastacomia/papastacomia.png",
+    "img": "/assets/papastacomia.png",
     "alt": "papa's tacomia"
   },
   {
     "url": "/gsrc/papaswingeria/index.html",
-    "img": "/gsrc/papaswingeria/papaswingeria.png",
+    "img": "/assets/papaswingeria.png",
     "alt": "papa's wingeria"
   },
   {
@@ -873,5 +873,85 @@
     "url": "/gxmez/zombs.html",
     "img": "/assets/zombsroyale.png",
     "alt": "zombs royale"
+  },
+  {
+    "url": "/emulatorjs/sonic1/index.html",
+    "img": "/assets/sonic1.png",
+    "alt": "sonic 1"
+  },
+  {
+    "url": "/emulatorjs/sonic2/index.html",
+    "img": "/assets/sonic2.png",
+    "alt": "sonic 2"
+  },
+  {
+    "url": "/emulatorjs/sonic3/index.html",
+    "img": "/assets/sonic3.png",
+    "alt": "sonic 3"
+  },
+  {
+    "url": "/noframe/crazycattle3d/index.html",
+    "img": "/assets/cc3d.png",
+    "alt": "crazy cattle 3d"
+  },
+  {
+    "url": "/emulatorjs/pokemonleaf/index.html",
+    "img": "/assets/pokemonleaf.png",
+    "alt": "pokemon leaf green"
+  },
+  {
+    "url": "/emulatorjs/pokemonfire/index.html",
+    "img": "/assets/pokemonfire.png",
+    "alt": "pokemon fire red"
+  },
+  {
+    "url": "/gsrc/timeshooter2/index.html",
+    "img": "/assets/timeshooter2.png",
+    "alt": "time shooter 2"
+  },
+  {
+    "url": "/gsrc/circlo/index.html",
+    "img": "/assets/circlo.png",
+    "alt": "circlo"
+  },
+  {
+    "url": "/gsrc/webecome/index.html",
+    "img": "/assets/wbwwb.png",
+    "alt": "we become what we behold"
+  },
+  {
+    "url": "/gsrc/fnaw/index.html",
+    "img": "/assets/fnaw.png",
+    "alt": "fnaw"
+  },
+  {
+    "url": "/gsrc/googlebaseball/index.html",
+    "img": "/assets/googlebaseball.png",
+    "alt": "google baseball"
+  },
+  {
+    "url": "/gsrc/gunmayhem/index.html",
+    "img": "/assets/gunmayhem.png",
+    "alt": "gun mayhem"
+  },
+  {
+    "url": "/gsrc/gunmayhem2/index.html",
+    "img": "/assets/gunmayhem2.png",
+    "alt": "gun mayhem 2"
+  },
+  {
+    "url": "/gsrc/gunmayhemredux/index.html",
+    "img": "/assets/gunmayhemredux.png",
+    "alt": "gun mayhem redux" 
+  },
+  {
+    "url": "/gsrc/1v1lolhacked/index.html",
+    "img": "/assets/1v1hacks.png",
+    "alt": "1v1.lol hacks" 
+  },
+  {
+    "url": "/gsrc/ragdoll-archers/index.html",
+    "img": "/assets/ragdoll-archers.png",
+    "alt": "ragdoll archers" 
   }
 ]
