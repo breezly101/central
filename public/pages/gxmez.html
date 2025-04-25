@@ -73,43 +73,66 @@
 
     <!-- eww, a script NOT loaded from a file -->
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function() {
             fetch('/json/gg.json')
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
                 .then(data => {
                     const container = document.querySelector('.buttons-here');
-                    if (!container) return;
+                    if (!container) {
+                        console.error('Container element not found');
+                        return;
+                    }
         
-                    document.getElementById("game-count").textContent = data.length;
+                    const appCountElement = document.getElementById("game-count");
+                    if (appCountElement) {
+                        appCountElement.textContent = data.length;
+                    }
+                    
                     data.sort((a, b) => a.alt.localeCompare(b.alt));
         
-                    requestIdleCallback(() => {
-                        data.forEach(item => {
-                            const linkElement = document.createElement('a');
-                            linkElement.href = item.url.startsWith('/extra/') || item.url.startsWith('/noframe/')
-                                ? item.url
-                                : `/iframe.html?url=${encodeURIComponent(item.url)}`;
+                    data.forEach(item => {
+                        const linkElement = document.createElement('a');
+                        linkElement.href = item.url.startsWith('/extra/') || item.url.startsWith('/noframe/')
+                            ? item.url
+                            : `/iframe.html?url=${encodeURIComponent(item.url)}`;
         
-                            const imgElement = document.createElement('img');
-                            imgElement.className = 'imgbutton';
+                        const imgElement = document.createElement('img');
+                        imgElement.className = 'imgbutton';
         
-                            const webpSrc = item.img.replace(/\.(png|jpg|jpeg)$/i, '.webp');
-                            imgElement.src = webpSrc;
-                            imgElement.alt = item.alt;
-                            imgElement.loading = 'lazy';
-                            imgElement.fetchPriority = 'low';
+                        const webpSrc = item.img.replace(/\.(png|jpg|jpeg)$/i, '.webp');
+                        imgElement.src = webpSrc;
+                        imgElement.onerror = function() {
+                            this.src = item.img;
+                        };
+                        
+                        imgElement.alt = item.alt;
+                        imgElement.loading = 'lazy';
+                        imgElement.fetchPriority = 'low';
         
-                            linkElement.appendChild(imgElement);
-                            container.appendChild(linkElement);
-                        });
+                        linkElement.appendChild(imgElement);
+                        container.appendChild(linkElement);
                     });
                 })
                 .catch(error => {
-                    console.error('error fetching ja yon:', error);
-                    document.getElementById("game-count").textContent = "idk";
+                    console.error('Error fetching app data:', error);
+                    const appCountElement = document.getElementById("game-count");
+                    if (appCountElement) {
+                        appCountElement.textContent = "Error";
+                    }
                 });
         });
-        </script>
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === '>') {
+                window.location.href = '/iframe.html?url=/4ppz/brunys.html';
+            }
+        });
+    </script>
         
         <script type='text/javascript' src='//pl24893363.profitableratecpm.com/e1/78/e8/e178e83d8a9f1f2aed9465374abd00ab.js'></script>
 </body>
