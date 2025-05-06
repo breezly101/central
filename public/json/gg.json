@@ -790,7 +790,7 @@
     "alt": "worlds hardest game"
   },
   {
-    "url": "/emulatorjs/yoshi/index.html",
+    "url": "/emulatorjs/yoshi-ds/index.html",
     "img": "/assets/yoshi.png",
     "alt": "yoshis island ds"
   },
@@ -890,7 +890,7 @@
     "alt": "sonic 3"
   },
   {
-    "url": "/noframe/crazycattle3d/index.html",
+    "url": "/gsrc/crazycattle/index.html",
     "img": "/assets/cc3d.png",
     "alt": "crazy cattle 3d"
   },
@@ -953,5 +953,90 @@
     "url": "/gsrc/ragdoll-archers/index.html",
     "img": "/assets/ragdoll-archers.png",
     "alt": "ragdoll archers" 
+  },
+  {
+      "url": "/noframe/random.html",
+      "img": "/assets/random.gif",
+      "alt": "01"
+  },
+  {
+    "url": "/gsrc/ultrakill/index.html",
+    "img": "/assets/ultrakill.png",
+    "alt": "ultrakill" 
+  },
+  {
+    "url": "/gsrc/repo/index.html",
+    "img": "/assets/repo.png",
+    "alt": "repo" 
+  },
+  {
+    "url": "/gsrc/people-playground/index.html",
+    "img": "/assets/peopleplayground.png",
+    "alt": "people playground" 
+  },
+  {
+    "url": "/gsrc/karlsonweb/index.html",
+    "img": "/assets/karlson.png",
+    "alt": "karlson" 
+  },
+  {
+    "url": "/gsrc/batim/index.html",
+    "img": "/assets/batim.png",
+    "alt": "bendy and the ink machine" 
+  },
+  {
+    "url": "/gsrc/milkman/index.html",
+    "img": "/assets/milkman.png",
+    "alt": "karlson milkman" 
+  },
+  {
+    "url": "/gsrc/escape-road-2/index.html",
+    "img": "/assets/escaperoad2.png",
+    "alt": "escape road 2" 
+  },
+  {
+    "url": "/gsrc/templerun2/index.html",
+    "img": "/assets/templerun2.png",
+    "alt": "temple run 2" 
+  },
+  {
+    "url": "/gsrc/rerun/index.html",
+    "img": "/assets/rerun.png",
+    "alt": "rerun" 
+  },
+  {
+    "url": "/emulatorjs/pokemonemerald/index.html",
+    "img": "/assets/emerald.png",
+    "alt": "pokemon emerald" 
+  },
+  {
+    "url": "/gsrc/undertale.html",
+    "img": "/assets/undertale.png",
+    "alt": "undertale" 
+  },
+  {
+    "url": "/gsrc/qwop/index.html",
+    "img": "/assets/qwop.png",
+    "alt": "qwop" 
+  },
+  {
+    "url": "/gsrc/ducklife5/index.html",
+    "img": "/assets/ducklife5.png",
+    "alt": "ducklife 5" 
+  },
+  {
+    "url": "/gxmez/slither.html",
+    "img": "/assets/slither.png",
+    "alt": "slither.io" 
+  },
+  {
+    "url": "/emulatorjs/scribblenauts/index.html",
+    "img": "/assets/scribblenauts.png",
+    "alt": "scribblenauts" 
+  },
+  {
+    "url": "/gsrc/tiny-fishing/index.html",
+    "img": "/assets/tiny-fishing.png",
+    "alt": "tiny fishing" 
   }
 ]

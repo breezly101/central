@@ -6,13 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const savedTheme = localStorage.getItem('siteTheme');
 
   if (savedFaviconUrl) {
-    let link = document.querySelector('link[rel="shortcut icon"]');
-    if (!link) {
-      link = document.createElement('link');
-      link.rel = 'shortcut icon';
-      document.head.appendChild(link);
-    }
+    let link = document.querySelector('link[rel="shortcut icon"]') || document.createElement('link');
+    link.rel = 'shortcut icon';
     link.href = savedFaviconUrl;
+    document.head.appendChild(link);
   }
 
   if (savedTitle) {
@@ -27,68 +24,75 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  const anticloseCheckbox = document.getElementById('anticlose');
+  const ANTICLOSE_STORAGE_KEY = 'anticloseEnabled';
+
+  if (anticloseCheckbox) {
+    const savedAnticloseState = localStorage.getItem(ANTICLOSE_STORAGE_KEY);
+    if (savedAnticloseState !== null) {
+      anticloseCheckbox.checked = savedAnticloseState === 'true';
+    }
+
+    anticloseCheckbox.addEventListener('change', () => {
+      localStorage.setItem(ANTICLOSE_STORAGE_KEY, anticloseCheckbox.checked.toString());
+      updateAnticloseHandler();
+    });
+  }
+
+  function updateAnticloseHandler() {
+    const isAnticloseEnabled = localStorage.getItem(ANTICLOSE_STORAGE_KEY) === 'true';
+    
+    if (isAnticloseEnabled) {
+      window.addEventListener('beforeunload', handleBeforeUnload);
+    } else {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    }
+  }
+
+  function handleBeforeUnload(e) {
+    e.preventDefault();
+    e.returnValue = 'Are you sure you want to leave? Your work may not be saved.';
+    return e.returnValue;
+  }
+
+  updateAnticloseHandler();
+
   const themeDropdown = document.getElementById('themee');
 
   function loadParticlesConfig(theme) {
-    let configpartjs = '/particlesjs-config.json';
-
-    if (theme === 'dark') {
-      configpartjs = '/dark.json';
-    }
-    if (theme === 'light') {
-      configpartjs = '/light.json';
-    }
-    if (theme === 'mexi') {
-      configpartjs = '/mexi.json';
-    }
-    if (theme === 'bubblegum') {
-      configpartjs = '/bubblegum.json';
-    }
-    if (theme === 'brunys') {
-      configpartjs = '/brunys.json';
-    }
-    if (theme === 'evergreen') {
-      configpartjs = '/evergreen.json';
-    }
-    if (theme === 'frogiee') {
-      configpartjs = '/frogiee.json';
-    }
-    if (theme === 'lavender') {
-      configpartjs = '/lavender.json';
-    }
-    if (theme === 'solarflare') {
-      configpartjs = '/solarflare.json';
-    }
-    if (theme === 'moonlight') {
-      configpartjs = '/moonlight.json';
-    }
-    if (theme === 'v1') {
-      configpartjs = 'none';
-    } else if (theme === 'default') {
-      configpartjs = '/particlesjs-config.json';
-    }
+    const configMap = {
+      'dark': '/dark.json',
+      'light': '/light.json',
+      'mexi': '/mexi.json',
+      'bubblegum': '/bubblegum.json',
+      'brunys': '/brunys.json',
+      'evergreen': '/evergreen.json',
+      'frogiee': '/frogiee.json',
+      'lavender': '/lavender.json',
+      'solarflare': '/solarflare.json',
+      'moonlight': '/moonlight.json',
+      'v1': null,
+      'default': '/particlesjs-config.json'
+    };
 
     const existingCanvas = document.querySelector('#particles-js canvas');
     if (existingCanvas) {
       existingCanvas.remove();
     }
 
-    particlesJS.load('particles-js', configpartjs, function () {
-      console.log(`Particles.js config loaded: ${configpartjs}`);
-    });
-  }
-
-  if (savedTheme) {
-    document.documentElement.setAttribute('data-theme', savedTheme);
-    if (themeDropdown) {
-      themeDropdown.value = savedTheme;
+    const configFile = configMap[theme];
+    if (configFile && typeof particlesJS !== 'undefined') {
+      particlesJS.load('particles-js', configFile, function() {
+        console.log(`Particles.js config loaded: ${configFile}`);
+      });
     }
-    loadParticlesConfig(savedTheme);
-  } else {
-    loadParticlesConfig('default');
   }
 
+  const themeToApply = savedTheme || 'default';
+  document.documentElement.setAttribute('data-theme', themeToApply);
+  
   if (themeDropdown) {
+    themeDropdown.value = themeToApply;
     themeDropdown.addEventListener('change', () => {
       const selectedTheme = themeDropdown.value;
       document.documentElement.setAttribute('data-theme', selectedTheme);
@@ -96,4 +100,6 @@ document.addEventListener('DOMContentLoaded', () => {
       loadParticlesConfig(selectedTheme);
     });
   }
+
+  loadParticlesConfig(themeToApply);
 });

@@ -1,5 +1,5 @@
 #gameframe {
-    margin-top: 3vw;
+    margin-top: 5vw;
     margin-bottom: 6vw;
     margin-right: 23vw;
     display: flex;
@@ -143,28 +143,6 @@
     height: 70%;
 }
 
-.fullscreenbtn {
-    border-radius: 0.3vw;
-    font-size: 1.6vw;
-    cursor: pointer;
-    transition: transform 0.3s ease-in-out;
-    margin-left: 1.2vw;
-}
-
-.fullscreenbtn:hover {
-    transform: scaleX(1.2) scaleY(1.2) rotate(-10deg);
-}
-
-.reloadbtn {
-    font-size: 1.6vw;
-    cursor: pointer;
-    transition: transform 0.55s ease-in-out;
-}
-
-.reloadbtn:hover {
-    transform: scaleX(1.2) scaleY(1.2) rotate(360deg);
-}
-
 .addisplay {
     margin-left: 80vw;
     width: 160px;
@@ -247,6 +225,7 @@
         margin-top: 100px;
         margin-right: 200px;
         font-size: 2.5vw;
+        margin-top: 6.5vw;
     }
 
     #gameframe .gameDisplay {
@@ -288,6 +267,31 @@
     }
 }
 
+#gameframe .options .game-button,
+.fullscreenbtn,
+.reloadbtn,
+.downloadbtn {
+    color: white;
+    cursor: pointer;
+    margin-left: 1.2vw;
+    font-size: 1.6vw;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fullscreenbtn:hover {
+    transform: scaleX(1.2) scaleY(1.2) rotate(-10deg);
+}
+
+.reloadbtn:hover {
+    transform: scaleX(1.2) scaleY(1.2) rotate(360deg);
+}
+
+.downloadbtn:hover {
+    transform: scaleX(1.2) scaleY(1.2);
+}
 
 @font-face {
     font-family: notitle;

@@ -21,7 +21,8 @@ document.addEventListener('DOMContentLoaded', function() {
         "geeked vs locked in",
         "\"if gravity can pull an apple, then you can pull a bad bih too\". - isacc newton",
         "best website for the unemployed",
-        "szby low taper fading"
+        "gurt: yo",
+        "fly high wifiskeleton, may he rest in peace 🕊️"
     ];
 
     if (loadingScreen) {

@@ -37,15 +37,68 @@
     <div id="particles-js"></div>
     <div id="loading-screen"><div id="loading-spinner"></div><h1 id="ld"></h1></div>
 
-    <div class="navbar">
-        <a href="/"><i class="fa-solid fa-house"></i></a>
-        <a href="/pages/gxmez.html"><i class="fas fa-gamepad"></i></a>
-        <a href="/pages/4pps.html"><i class="fas fa-border-all"></i></a>
-        <a href="/pages/ai.html"><i class="fa-solid fa-robot"></i></a>
-        <a href="/pages/settings.html"><i class="fa-solid fa-gear"></i></a>
-        <a href="/pages/extra.html"><i class="fas fa-plus"></i></a>
-        <a href="/extra/discord.html"><i class="fa-brands fa-discord"></i></a>
-</div>
+    <div class="navbar-container">
+        <nav class="navbar">
+            <div class="nav-logo">
+                <img class="logo-icon" src="/assets/logo.webp">
+            </div>
+            <div class="nav-links">
+                <a href="/" class="nav-link" title="Home">
+                    <i class="fa-solid fa-house"></i>
+                    <span class="link-text">Home</span>
+                </a>
+                <a href="/pages/gxmez.html" class="nav-link" title="Games">
+                    <i class="fas fa-gamepad"></i>
+                    <span class="link-text">Games</span>
+                </a>
+                <a href="/pages/4pps.html" class="nav-link" title="Apps">
+                    <i class="fas fa-border-all"></i>
+                    <span class="link-text">Apps</span>
+                </a>
+                <a href="/pages/ai.html" class="nav-link" title="AI">
+                    <i class="fa-solid fa-robot"></i>
+                    <span class="link-text">AI</span>
+                </a>
+                <a href="/pages/bookmarklets.html" class="nav-link" title="Bookmarklets">
+                    <i class="fa-solid fa-bookmark"></i>
+                    <span class="link-text">Bookmarklets</span>
+                </a>
+                <a href="/pages/settings.html" class="nav-link" title="Settings">
+                    <i class="fa-solid fa-gear"></i>
+                    <span class="link-text">Settings</span>
+                </a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" title="More">
+                        <i class="fas fa-plus"></i>
+                        <span class="link-text">More</span>
+                        <i class="dropdown-arrow fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="/extra/discord.html" class="dropdown-item" title="Discord">
+                            <i class="fa-brands fa-discord"></i>
+                            Discord
+                        </a>
+                        <a href="/extra/credits.html" class="dropdown-item" title="Credits">
+                            <i class="fa-solid fa-users"></i>
+                            Credits
+                        </a>
+                        <a href="/extra/partners.html" class="dropdown-item" title="Partners">
+                            <i class="fa-solid fa-handshake"></i>
+                            Partners
+                        </a>
+                        <a href="/extra/suggest.html" class="dropdown-item" title="Suggestions">
+                            <i class="fa-solid fa-message"></i>
+                            Suggestions
+                        </a>
+                        <a href="/extra/DMCA.html" class="dropdown-item" title="DMCA">
+                            <i class="fa-solid fa-scale-balanced"></i>
+                            DMCA
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
 
     <div id="gameframe">
         <div class="gameDisplay">
@@ -57,6 +110,7 @@
                 <div class="right">
                     <i class="fa-solid fa-rotate-right reloadbtn" id="reloadbtn"></i>
                     <i class="fa-solid fa-expand fullscreenbtn" onclick="fullscreen();"></i>
+                    <i class="fa-solid fa-download downloadbtn" id="downloadbtn"></i>
                 </div>
             </div>
         </div>
@@ -92,55 +146,7 @@
         </ins>
     </div>
 
-    <script>
-        var iframe = document.getElementById("iframe");
-    
-        function fullscreen() {
-            if (iframe.requestFullscreen) iframe.requestFullscreen();
-            else if (iframe.webkitRequestFullscreen) iframe.webkitRequestFullscreen();
-            else if (iframe.msRequestFullscreen) iframe.msRequestFullscreen();
-        }
-    
-        document.getElementById("reloadbtn").onclick = function() { 
-            iframe.src += ""; 
-        };
-    
-        function getUrlParameter(name) {
-            var regex = new RegExp('[?&]' + name + '=([^&#]*)');
-            var results = regex.exec(location.search);
-            return results ? decodeURIComponent(results[1].replace(/\+/g, ' ')) : '';
-        }
-    
-        async function fetchGameData() {
-            try {
-                const urlValue = getUrlParameter('url');
-                if (!urlValue) return;
-    
-                let response = await fetch('/json/gg.json');
-                let data = await response.json();
-                let game = data.find(game => game.url === urlValue);
-    
-                if (!game) {
-                    response = await fetch('/json/tstststststststststststststststststststststststs.json');
-                    data = await response.json();
-                    game = data.find(game => game.url === urlValue);
-                }
-    
-                if (game && game.alt) {
-                    document.getElementById("titletext").textContent = game.alt;
-                }
-            } catch (error) {
-                console.error("Error fetching JSON:", error);
-            }
-        }
-    
-        var url = getUrlParameter('url');
-        if (url) {
-            url = url.replace(/%2F/g, "/");
-            iframe.src = url;
-            fetchGameData();
-        }
-    </script>
+    <script src="/js/frame.js"></script>
     <script type='text/javascript' src='//pl24893363.profitableratecpm.com/e1/78/e8/e178e83d8a9f1f2aed9465374abd00ab.js'></script>
 </body>
 </html>
