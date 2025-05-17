@@ -2,7 +2,7 @@ const chatContainer = document.getElementById('chat-container');
 const userInput = document.getElementById('user-input');
 const sendButton = document.getElementById('send-button');
 
-const apiKey = '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';
+const apiKey = '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'; // yes, i know my api key is public. stop telling me about this
 
 async function sendMessage() {
     const userMessage = userInput.value.trim();
