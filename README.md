@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://files.catbox.moe/vl5cij.png" alt="szvy centraling" width="250">
+  <img src="https://files.catbox.moe/ywbpa2.png" alt="szvy centraling" width="250">
 </p>
 
 <h1 align="center">Szvy Central V2</h1>
