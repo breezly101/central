@@ -1,6 +1,3 @@
-<p align="center">
-  <img src="https://files.catbox.moe/ywbpa2.png" alt="szvy centraling" width="250">
-</p>
 
 <h1 align="center">Nexus V2</h1>
 
