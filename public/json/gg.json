@@ -745,6 +745,11 @@
     "alt": "super mario bros 3"
   },
   {
+    "url": "/gxmez/smc.html",
+    "img": "/assets/smc.png",
+    "alt": "super mario construct"
+  },
+  {
     "url": "/emulatorjs/smw/index.html",
     "img": "/assets/smw.png",
     "alt": "super mario world"
