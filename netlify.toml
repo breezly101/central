@@ -1,4 +1,4 @@
 [[headers]]
-  for = "/emulatorjavascript/data/cores/*"
+  for = "public/emulatorjavascript/data/cores/*"
   [headers.values]
   Access-Control-Allow-Origin = "*"
